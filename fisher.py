@@ -52,8 +52,9 @@ def search(q, page):
     isbn
     :return:
     '''
-
+    print("{}{}".format(q, page))
     isbn_or_key = is_isbn_or_key(q)
+    print('issb_or_key:', isbn_or_key)
     if isbn_or_key == 'isbn':
         result = YuShuBook.search_by_isbn(q)
     else:
@@ -68,5 +69,7 @@ if __name__ == "__main__":
     如果没有这个if __name__ 判断， 在导入时，flask的web服务器就直接运行了 
     '''
     app.run(debug = app.config["DEBUG"], host = '0.0.0.0', port = 9999)
+
+
 
 

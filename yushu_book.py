@@ -6,18 +6,19 @@
 """
 from httper import HTTP
 
-class YuShuBook:
+class YuShuBook():
     isbn_ulr = 'http://t.yushu.im/v2/book/isbn/{}'
     keyword_url = 'http://t.yushu.im/v2/book/search?q={}%count={}&start={}'
 
-    @staticmethod
-    def search_by_isbn(self, isbn):
-        url = YuShuBook.isbn_ulr.format(isbn)
+    @classmethod
+    def search_by_isbn(cls, isbn):
+        url = cls.isbn_ulr.format(isbn)
+        print ("url:", url)
         result = HTTP.get(url)
         return result
 
-    @staticmethod
-    def search_by_keyword(self, keyword, count = 15, start = 0):
-        url = YuShuBook.keyword_url.format(keyword, count, start)
+    @classmethod
+    def search_by_keyword(cls, keyword, count = 15, start = 0):
+        url = cls.keyword_url.format(keyword, count, start)
         result = HTTP.get(url)
         return result

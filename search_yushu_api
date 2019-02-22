@@ -1,7 +1,8 @@
 关键字搜索:
     t.yushu.im/v2/book/search?q={}&start={}&count={}
 isbn搜索：
-    t.yushu.im/v2/book/book/isbn/}{isbn}
+    t.yushu.im/v2/book/book/isbn/{isbn}
+    t.yushu.im/v2/book/isbn/9787501524044
 
 豆瓣的api:
     https://api.douban.com/v2/book
