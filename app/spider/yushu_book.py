@@ -4,9 +4,13 @@
 @file: yushu_book.py
 @time: 2019/2/22 16:16
 """
-from httper import HTTP
+from flask import current_app
+
+from app.libs.httper import HTTP
+
 
 class YuShuBook():
+
     isbn_ulr = 'http://t.yushu.im/v2/book/isbn/{}'
     keyword_url = 'http://t.yushu.im/v2/book/search?q={}%count={}&start={}'
 
@@ -18,7 +22,12 @@ class YuShuBook():
         return result
 
     @classmethod
-    def search_by_keyword(cls, keyword, count = 15, start = 0):
-        url = cls.keyword_url.format(keyword, count, start)
+    def search_by_keyword(cls, keyword, page = 1):
+        url = cls.keyword_url.format(keyword, current_app.config['PER_PAGE']
+                                     , cls.calculaate_start(page))
         result = HTTP.get(url)
         return result
+
+    @staticmethod
+    def calculaate_start(page):
+        return (page-1)*current_app.config['PER_PAGE']

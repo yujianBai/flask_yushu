@@ -6,3 +6,13 @@ isbn搜索：
 
 豆瓣的api:
     https://api.douban.com/v2/book
+
+
+数据表创建方式：
+    1, database first
+        字段，表手动去创建
+    2, model first
+        用建模工具创建
+    3, code first
+        专注业务模型的设计 而不是专注数据库设计
+        数据库只是来存储数据库的， 他的表关系应该由我们的业务决定

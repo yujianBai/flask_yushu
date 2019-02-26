@@ -6,8 +6,6 @@
 """
 
 from app import create_app
-from helper import is_isbn_or_key
-from yushu_book import YuShuBook
 
 
 # 这里需要一个模块的路径
